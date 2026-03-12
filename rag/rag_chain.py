@@ -35,9 +35,9 @@ Question:
 
     llm = ChatGroq(
         model="llama3-8b-8192",
-        api_key=os.getenv("GROQ_API_KEY"),
+        api_key=st.secrets["GROQ_API_KEY"],
         temperature=0
-    )
+)
 
     rag_chain = (
         RunnableParallel(

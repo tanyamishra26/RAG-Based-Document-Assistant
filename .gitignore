@@ -1,0 +1,5 @@
+.env
+__pycache__/
+rag_venv/
+uploads/
+*.pyc

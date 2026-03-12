@@ -1,8 +1,9 @@
 langchain
 langchain-community
-langchain-huggingface
-langchain-ollama
-faiss-cpu
+langchain-core
+langchain-groq
 sentence-transformers
+faiss-cpu
 pypdf
 streamlit
+python-dotenv

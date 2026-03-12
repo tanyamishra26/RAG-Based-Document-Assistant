@@ -1,13 +1,14 @@
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_huggingface import HuggingFaceEndpoint
+from langchain_groq import ChatGroq
 import streamlit as st
 
 
 def format_docs(docs):
     if not docs:
         return "No relevant documents found."
+    
     return "\n\n".join(doc.page_content for doc in docs)
 
 
@@ -22,6 +23,8 @@ Answer the question ONLY using the provided context.
 If the answer is not present in the context, say:
 "I could not find the answer in the provided documents."
 
+Do not make up information.
+
 Context:
 {context}
 
@@ -30,12 +33,12 @@ Question:
 """
 )
 
-    llm = HuggingFaceEndpoint(
-        repo_id="google/flan-t5-base",
-        huggingfacehub_api_token=st.secrets["HF_TOKEN"],
-        temperature=0.2,
-        max_new_tokens=512
-        )
+    # Groq LLM
+    llm = ChatGroq(
+        model="llama3-8b-8192",
+        api_key=st.secrets["GROQ_API_KEY"],
+        temperature=0
+    )
 
     rag_chain = (
         RunnableParallel(

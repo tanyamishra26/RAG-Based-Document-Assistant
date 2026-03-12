@@ -31,7 +31,7 @@ Question:
 )
 
     llm = HuggingFaceEndpoint(
-        repo_id="google/flan-t5-large",
+        repo_id="google/flan-t5-base",
         huggingfacehub_api_token=st.secrets["HF_TOKEN"],
         temperature=0.2,
         max_new_tokens=512

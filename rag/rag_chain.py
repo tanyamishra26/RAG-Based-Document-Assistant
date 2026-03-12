@@ -2,7 +2,7 @@ from langchain_core.runnables import RunnableParallel, RunnablePassthrough, Runn
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-import os
+import streamlit as st
 
 
 def format_docs(docs):
@@ -37,7 +37,7 @@ Question:
         model="llama3-8b-8192",
         api_key=st.secrets["GROQ_API_KEY"],
         temperature=0
-)
+    )
 
     rag_chain = (
         RunnableParallel(

@@ -1,8 +1,8 @@
+# rag_chain
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_groq import ChatGroq
-import streamlit as st
+from langchain_ollama import ChatOllama
 
 
 def format_docs(docs):
@@ -33,10 +33,8 @@ Question:
 """
 )
 
-    # Groq LLM
-    llm = ChatGroq(
-        model="llama3-8b-8192",
-        api_key=st.secrets["GROQ_API_KEY"],
+    llm = ChatOllama(
+        model="mistral",
         temperature=0
     )
 
@@ -45,7 +43,7 @@ Question:
             {
                 "context": retriever | RunnableLambda(format_docs),
                 "question": RunnablePassthrough(),
-                "docs": retriever
+                "docs": retriever   # ← keep original documents
             }
         )
         | RunnableLambda(

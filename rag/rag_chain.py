@@ -14,16 +14,12 @@ def format_docs(docs):
 
 def create_rag_chain(retriever):
 
-    prompt = ChatPromptTemplate.from_template(
+    pprompt = ChatPromptTemplate.from_template(
 """
-You are a document assistant.
+Answer the question using ONLY the context.
 
-Answer the question ONLY using the provided context.
-
-If the answer is not present in the context, say:
+If the answer is not in the context, say:
 "I could not find the answer in the provided documents."
-
-Do not make up information.
 
 Context:
 {context}
@@ -31,6 +27,7 @@ Context:
 Question:
 {question}
 """
+
 )
 
     # Groq LLM

@@ -1,8 +1,7 @@
 langchain
-langchain-core
 langchain-community
-langchain-huggingface
-huggingface_hub
+langchain-core
+langchain-groq
 sentence-transformers
 faiss-cpu
 pypdf

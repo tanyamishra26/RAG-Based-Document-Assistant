@@ -106,19 +106,6 @@ streamlit run app.py
 
 ---
 
-## Deployment (Streamlit Cloud)
-
-1. Push code to GitHub
-2. Go to Streamlit Cloud
-3. Deploy app using `app.py`
-4. Add secret:
-
-```toml
-GROQ_API_KEY="your_api_key_here"
-```
-
----
-
 ## Project Structure
 
 ```

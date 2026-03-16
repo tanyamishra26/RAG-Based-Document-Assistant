@@ -1,8 +1,6 @@
 # 📄 RAG-Based Document Assistant
 
-A Retrieval-Augmented Generation (RAG) application that allows users to upload PDF documents and ask questions about their content using natural language. The system retrieves relevant document chunks using semantic search and generates grounded responses using a local LLM.
-
-This project demonstrates how to build an end-to-end RAG pipeline using LangChain LCEL, FAISS vector database, HuggingFace embeddings, and Ollama LLM, with an interactive Streamlit chat interface
+A Retrieval-Augmented Generation (RAG) chatbot that allows users to upload PDFs and ask questions based on their content. The system retrieves relevant document chunks and generates accurate answers using Groq-powered LLMs.
 
 ---
 ## Live Demo
